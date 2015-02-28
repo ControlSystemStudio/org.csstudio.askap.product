@@ -1,0 +1,1 @@
+# org.csstudio.askap.product
