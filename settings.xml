@@ -1,0 +1,41 @@
+<!-- Maven settings.xml -->
+<settings>
+	<profiles>
+		<profile>
+			<id>my-css-settings</id>
+			<properties>
+				<!-- Configure either a composite repo -->
+				or a local repository, not both!
+				-->
+				<!-- Path to your composite repo -->
+				<!--
+				<csstudio.composite.repo>/path/to/my_comp_repo</csstudio.composite.repo>
+				-->
+
+				<!-- Path to your local repo -->
+				<csstudio.local.repo>/Users/wu049/.m2/repository/p2</csstudio.local.repo>
+
+				<!-- Setting this property DISABLES
+				downloads from
+				download.controlsystemstudio.org,
+				so you use only your
+				local or composite repo
+				-->
+				<cs-studio>dummy_value</cs-studio>
+
+				<!-- Issue warnings instead of aborting on error -->
+				<baselineMode>warn</baselineMode>
+				<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+
+				<!-- Skip unit tests -->
+				<maven.test.skip>true</maven.test.skip>
+				<skipTests>true</skipTests>
+
+			</properties>
+		</profile>
+	</profiles>
+	<!-- Enable the above settings -->
+	<activeProfiles>
+		<activeProfile>my-css-settings</activeProfile>
+	</activeProfiles>
+</settings>

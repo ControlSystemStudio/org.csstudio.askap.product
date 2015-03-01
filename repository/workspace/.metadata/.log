@@ -1,0 +1,124 @@
+!SESSION 2015-03-01 21:23:03.460 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho3324055655292892319secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho3324055655292892319secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:23:03.460
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:26:17.852 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho1007792218610816872secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho1007792218610816872secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:26:17.852
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:27:54.625 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho4950140893770260158secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho4950140893770260158secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:27:54.625
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:29:13.872 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho6149643180211787486secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho6149643180211787486secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:29:13.872
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:30:15.214 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho3978049891051740649secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho3978049891051740649secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:30:15.214
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:36:12.477 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho708767968228237645secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho708767968228237645secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:36:12.477
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:38:16.251 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho5642537187052569646secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho5642537187052569646secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:38:16.251
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:39:59.288 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho8623721873369818604secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho8623721873369818604secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:39:59.288
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:42:36.516 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho5676994420287659954secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho5676994420287659954secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:42:36.516
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-03-01 21:43:52.449 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_31
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho207940510574209956secure_storage
+Command-line arguments:  -eclipse.keyring /var/folders/mm/dp4g0ljx41l3cfhbkd9m22x800__07/T/tycho207940510574209956secure_storage
+
+!ENTRY org.eclipse.core.net 1 0 2015-03-01 21:43:52.449
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-03-01 21:50:34.932
+!MESSAGE Connection to http://download.eclipse.org/releases/luna/201406250900/plugins/org.eclipse.jdt.launching.macosx_3.2.300.v20130801-1441.jar.pack.gz failed on Operation timed out. Retry attempt 0 started
+!STACK 0
+java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient4.ECFHttpClientProtocolSocketFactory.connectSocket(ECFHttpClientProtocolSocketFactory.java:84)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:177)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1077)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1068)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1064)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.csstudio</groupId>
+    <artifactId>askap</artifactId>
+    <version>${global-version}</version>
+  </parent>
+  <groupId>org.csstudio</groupId>
+  <artifactId>askap-plugins</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+	<module>org.csstudio.askap.utility</module>
+	<module>org.csstudio.archive.reader.monica</module>
+	<module>org.csstudio.askap.chat</module>
+	<module>org.csstudio.askap.logviewer</module>
+	<module>org.csstudio.askap.navigator</module>
+	<module>org.csstudio.askap.pydev.configurator</module>
+	<module>org.csstudio.askap.sb</module>
+	<module>org.csstudio.askap.utility.icemanager</module>
+  </modules>
+</project>
