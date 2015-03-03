@@ -2,17 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.csstudio.alarm.beast.server.application"
-            name="Alarm Server">
-         <property
-               name="appName"
-               value="Alarm Server">
-         </property>
-      </product>
-   </extension>
-   <extension
          id="product"
          point="org.eclipse.core.runtime.products">
       <product

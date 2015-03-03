@@ -52,4 +52,11 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.csstudio.askap.alarm.beast.server.product"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
