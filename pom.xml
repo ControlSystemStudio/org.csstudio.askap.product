@@ -104,6 +104,7 @@
   <modules>
     <module>plugins</module>
     <module>features</module>
+    <module>products</module>
     <module>repository</module>
   </modules>
 

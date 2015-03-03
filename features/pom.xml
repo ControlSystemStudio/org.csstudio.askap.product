@@ -18,9 +18,9 @@
 	<module>org.csstudio.askap.core.feature</module>
 	<module>org.csstudio.askap.eclipse.feature</module>
 	<module>org.csstudio.askap.optional.feature</module>
-	<module>org.csstudio.askap.pydev.feature</module>
 <!--	
 	<module>org.csstudio.askap.jms2rdb.app.feature</module> 
+	<module>org.csstudio.askap.pydev.feature</module>
 -->
 
   </modules>

@@ -16,8 +16,11 @@
 	<module>org.csstudio.askap.chat</module>
 	<module>org.csstudio.askap.logviewer</module>
 	<module>org.csstudio.askap.navigator</module>
-	<module>org.csstudio.askap.pydev.configurator</module>
 	<module>org.csstudio.askap.sb</module>
 	<module>org.csstudio.askap.utility.icemanager</module>
+<!--
+	<module>org.csstudio.askap.pydev.configurator</module>
+-->
+
   </modules>
 </project>

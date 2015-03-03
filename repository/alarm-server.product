@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Alarm Server" uid="org.csstudio.askap.alarm.beast.server.product" id="org.csstudio.askap.alarm.beast.server.product.product" application="org.csstudio.alarm.beast.server.application" version="4.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Alarm Server" uid="askap-alarm-server" id="org.csstudio.askap.alarm.beast.server.product" application="org.csstudio.alarm.beast.server.application" version="4.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <programArgs>--launcher.suppressErrors</programArgs>
+      <programArgs>--launcher.suppressErrors
+      </programArgs>
       <vmArgs>-Declipse.exitdata=
 -Djava.awt.headless=true -Xms64m -Xmx256m
 -Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
--Dorg.apache.commons.logging.simplelog.defaultlog=fatal</vmArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+-Dorg.apache.commons.logging.simplelog.defaultlog=fatal
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages/>
@@ -71,10 +74,15 @@
    </plugins>
 
    <features>
-      <feature id="org.csstudio.askap.eclipse.feature" version="4.0.0.qualifier"/>
-      <feature id="org.csstudio.askap.core.feature" version="4.0.0.qualifier"/>
-      <feature id="org.csstudio.askap.alarm.beast.server.app.feature" version="4.0.0.qualifier"/>
+      <feature id="org.csstudio.askap.eclipse.feature"/>
+      <feature id="org.csstudio.askap.core.feature"/>
+      <feature id="org.csstudio.askap.alarm.beast.server.app.feature"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
+   </configurations>
 
 </product>

@@ -1,19 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!--
+Builds SNS products, place in local repo
+-->
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.csstudio</groupId>
     <artifactId>askap</artifactId>
     <version>${global-version}</version>
   </parent>
-  <groupId>org.csstudio</groupId>
-  <artifactId>askap-aggregator</artifactId>
-  <packaging>pom</packaging>
 
-  <modules>
-	<module>../plugins</module>
-	<module>../features</module>
-	<module>../products</module>
-  </modules>
+  <groupId>org.csstudio</groupId>
+  <artifactId>askap-repository</artifactId>
+  <version>4.0.0-SNAPSHOT</version>
+  <packaging>eclipse-repository</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-director-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <includeAllDependencies>true</includeAllDependencies>
+          <!-- Will build a product for every *.product file found,
+               but details of generated files are configured in there.
+            -->
+          <products>
+            <product>
+              <id>askap-alarm-config</id>
+              <rootFolder>askap-alarm-config-4.0.0.qualifier</rootFolder>
+              <archiveFileName>askap-alarm-config-4.0.0.qualifier</archiveFileName>
+              <attachId>askap-alarm-config</attachId>
+            </product>
+            <product>
+              <id>askap-alarm-server</id>
+              <rootFolder>askap-alarm-server-4.0.0.qualifier</rootFolder>
+              <archiveFileName>askap-alarm-server-4.0.0.qualifier</archiveFileName>
+              <attachId>askap-alarm-server</attachId>
+            </product>
+            <product>
+              <id>askap-alarm-notifier</id>
+              <rootFolder>askap-alarm-notifier-4.0.0.qualifier</rootFolder>
+              <archiveFileName>askap-alarm-notifier-4.0.0.qualifier</archiveFileName>
+              <attachId>askap-alarm-notifier</attachId>
+            </product>
+            <product>
+              <id>css-askap-product</id>
+              <rootFolder>css-askap-product-4.0.0.qualifier</rootFolder>
+              <archiveFileName>css-askap-product-4.0.0.qualifier</archiveFileName>
+              <attachId>css-askap-product</attachId>
+            </product>
+          </products>
+        </configuration>
+        <executions>
+          <!-- Create products listed above.
+               In addition, features listed in category.xml
+               turn into installable features.
+            -->
+          <execution>
+            <id>materialize-products</id>
+            <goals>
+              <goal>materialize-products</goal>
+            </goals>
+          </execution>
+          <!-- Zip the products -->
+          <execution>
+            <id>archive-products</id>
+            <goals>
+              <goal>archive-products</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-repository-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <includeAllDependencies>true</includeAllDependencies>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- As a result of the director plugin run configured above,
+       products will be generated under
+           cs-studio-SNS/repository/target/products/*,
+       and a P2 repo for installing additional features under
+           cs-studio-SNS/repository/target/repository.
+
+       If a local repository is specified, mirror the build repository
+       to that local repository
+    -->
+  <profiles>
+    <profile>
+      <id>csstudio-local-repo-mirror</id>
+      <activation>
+        <property>
+          <name>SKIP_THIS_FOR_NOW_csstudio.local.repo</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+           <plugin>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-p2-extras-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <executions>
+              <execution>
+              <id>mirror-build-to-local-repository</id>
+              <phase>package</phase>
+              <goals>
+                  <goal>mirror</goal>
+              </goals>
+              <configuration>
+                <!-- Details: https://www.eclipse.org/tycho/sitedocs-extras/tycho-p2-extras-plugin/mirror-mojo.html -->
+                <source>
+                    <repository>
+                        <url>${project.baseUri}/target/repository</url>
+                        <layout>p2</layout>
+                    </repository>
+                </source>
+                <append>true</append>
+                <compress>true</compress>
+                <mirrorMetadataOnly>false</mirrorMetadataOnly>
+                <destination>${csstudio.local.repo}</destination>
+              </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-repository-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <configuration>
+              <includeAllDependencies>true</includeAllDependencies>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
 </project>

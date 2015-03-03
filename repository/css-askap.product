@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="CSS for ASKAP" uid="askap" id="org.csstudio.askap.product.product" application="org.csstudio.askap.product.application" version="4.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="CSS for ASKAP" uid="css-askap-product" id="org.csstudio.askap.product.product" application="org.csstudio.askap.product.application" version="4.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.csstudio.askap.product/icons/aboutSide.png"/>
@@ -29,7 +29,8 @@ http://sourceforge.net/apps/trac/cs-studio/wiki
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="/org.csstudio.askap.product/icons/css16.png" i32="/org.csstudio.askap.product/icons/css32.png" i48="/org.csstudio.askap.product/icons/css48.png" i64="/org.csstudio.askap.product/icons/css64.png" i128="/org.csstudio.askap.product/icons/css128.png"/>
@@ -49,8 +50,10 @@ http://sourceforge.net/apps/trac/cs-studio/wiki
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -157,12 +160,19 @@ http://sourceforge.net/apps/trac/cs-studio/wiki
    </plugins>
 
    <features>
-      <feature id="org.csstudio.askap.eclipse.feature" version="4.0.0"/>
-      <feature id="org.csstudio.askap.core.feature" version="4.0.0"/>
-      <feature id="org.csstudio.askap.applications.feature" version="4.0.0"/>
-      <feature id="org.csstudio.askap.optional.feature" version="4.0.0"/>
-      <feature id="org.csstudio.askap.pydev.feature" version="4.0.0"/>
+      <feature id="org.csstudio.askap.eclipse.feature"/>
+      <feature id="org.csstudio.askap.core.feature"/>
+      <feature id="org.csstudio.askap.applications.feature"/>
+      <feature id="org.csstudio.askap.optional.feature"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
 
 </product>

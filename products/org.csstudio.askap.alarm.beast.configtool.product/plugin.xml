@@ -17,10 +17,10 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.csstudio.alarm.beast.configtool.application"
-            name="org.csstudio.askap.alarm.beast.configtool.product.product">
+            name="org.csstudio.askap.alarm.beast.configtool.product">
          <property
                name="appName"
-               value="org.csstudio.askap.alarm.beast.configtool.product.product">
+               value="org.csstudio.askap.alarm.beast.configtool.product">
          </property>
       </product>
    </extension>
