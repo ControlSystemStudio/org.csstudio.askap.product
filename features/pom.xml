@@ -11,17 +11,8 @@
   <artifactId>askap-features</artifactId>
   <packaging>pom</packaging>
   <modules>
-	<module>org.csstudio.askap.alarm.beast.configtool.app.feature</module>
-	<module>org.csstudio.askap.alarm.beast.notifier.app.feature</module>
-	<module>org.csstudio.askap.alarm.beast.server.app.feature</module>
 	<module>org.csstudio.askap.applications.feature</module>
 	<module>org.csstudio.askap.core.feature</module>
 	<module>org.csstudio.askap.eclipse.feature</module>
-	<module>org.csstudio.askap.optional.feature</module>
-<!--	
-	<module>org.csstudio.askap.jms2rdb.app.feature</module> 
-	<module>org.csstudio.askap.pydev.feature</module>
--->
-
   </modules>
 </project>

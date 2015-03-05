@@ -12,9 +12,6 @@
 
   <packaging>pom</packaging>
   <modules>
-	<module>org.csstudio.askap.alarm.beast.configtool.product</module>
-	<module>org.csstudio.askap.alarm.beast.notifier.product</module>
-	<module>org.csstudio.askap.alarm.beast.server.product</module>
 	<module>org.csstudio.askap.product</module>
   </modules>
 </project>

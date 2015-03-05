@@ -50,10 +50,8 @@ http://sourceforge.net/apps/trac/cs-studio/wiki
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -160,10 +158,12 @@ http://sourceforge.net/apps/trac/cs-studio/wiki
    </plugins>
 
    <features>
+<!--
+      <feature id="org.python.pydev.feature"/>
+-->
       <feature id="org.csstudio.askap.eclipse.feature"/>
       <feature id="org.csstudio.askap.core.feature"/>
       <feature id="org.csstudio.askap.applications.feature"/>
-      <feature id="org.csstudio.askap.optional.feature"/>
    </features>
 
    <configurations>
