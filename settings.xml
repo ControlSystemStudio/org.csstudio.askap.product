@@ -4,7 +4,7 @@
 		<profile>
 			<id>my-css-settings</id>
 			<properties>
-				<!-- Configure either a composite repo -->
+				<!-- Configure either a composite repo
 				or a local repository, not both!
 				-->
 				<!-- Path to your composite repo -->
@@ -30,7 +30,6 @@
 				<!-- Skip unit tests -->
 				<maven.test.skip>true</maven.test.skip>
 				<skipTests>true</skipTests>
-
 			</properties>
 		</profile>
 	</profiles>
