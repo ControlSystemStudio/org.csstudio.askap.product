@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.csstudio</groupId>
     <artifactId>askap-features</artifactId>
-    <version>${global-version}</version>
+    <version>BUILD-VERSION</version>
   </parent>
   <groupId>org.csstudio</groupId>
   <artifactId>org.csstudio.askap.core.feature</artifactId>
