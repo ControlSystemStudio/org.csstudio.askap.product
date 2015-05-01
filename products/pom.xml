@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.csstudio</groupId>
     <artifactId>askap</artifactId>
-    <version>${global-version}</version>
+    <version>BUILD-VERSION</version>
   </parent>
   <groupId>org.csstudio</groupId>
   <artifactId>askap-products</artifactId>
