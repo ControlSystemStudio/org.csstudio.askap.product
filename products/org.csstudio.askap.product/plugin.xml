@@ -68,7 +68,7 @@
    <extension
          point="org.csstudio.startup.module">
       <startupParameters
-            class="org.csstudio.askap.product.StartupParameters">
+            class="org.csstudio.utility.product.StartupParameters">
       </startupParameters>
       <project
             class="org.csstudio.startup.module.defaults.DefaultProject">
@@ -76,6 +76,9 @@
       <workbench
             class="org.csstudio.utility.product.Workbench">
       </workbench>
+      <workspace
+            class="org.csstudio.utility.product.WorkspacePrompt">
+      </workspace>
    </extension>
    <extension
          point="org.eclipse.ui.intro">
