@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.csstudio.askap.applications.feature"
-      label="Generic CSS Applications"
+      label="ASKAP CSS Applications"
       version="4.0.0.qualifier"
-      provider-name="Kay Kasemir &lt;kasemirk@ornl.gov&gt;, Xihui Chen &lt;chenx1@ornl.gov&gt; - SNS">
+      provider-name="Xinyu Wu, CASS CSIRO">
 
    <description>
       Generic CSS applications: Clock, Probe, PV Tree, ...
@@ -25,10 +25,6 @@ FOR PARTICULAR PURPOSE AND NON-INFRINGEMENT.
 
 For details, see http://www.eclipse.org/legal/epl-v10.html
    </license>
-
-   <url>
-      <update label="SNS CSS Update Site" url="http://ics-web.sns.ornl.gov/css/updates/"/>
-   </url>
 
    <includes
          id="org.csstudio.trends.databrowser2.feature"

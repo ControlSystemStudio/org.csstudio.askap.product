@@ -29,6 +29,18 @@ http://sourceforge.net/apps/trac/cs-studio/wiki
    </configIni>
 
    <launcherArgs>
+      <programArgs>--launcher.defaultAction
+openFile
+      </programArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.8
+-Dorg.osgi.framework.bundle.parent=ext
+-Dosgi.framework.extensions=org.eclipse.fx.osgi
+-Xmx1024m
+-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
+-Dorg.apache.commons.logging.simplelog.defaultlog=fatal
+-Dpython.cachedir.skip=true
+-Declipse.p2.unsignedPolicy=allow
+      </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
