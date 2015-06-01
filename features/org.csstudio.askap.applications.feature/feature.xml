@@ -31,7 +31,7 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
          version="0.0.0"/>
 
    <includes
-         id="org.csstudio.opibuilder.feature"
+         id="org.csstudio.applications.opibuilder.feature"
          version="0.0.0"/>
 
    <includes
@@ -99,21 +99,7 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
          unpack="false"/>
 
    <plugin
-         id="org.csstudio.display.pace"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.csstudio.display.pvtable"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.csstudio.display.rdbtable"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -142,13 +128,6 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="org.csstudio.diag.pvmanager.probe"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.csstudio.opibuilder.widgets.extra"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) 2014 Oak Ridge National Laboratory.
- All rights reserved. This program and the accompanying materials
- are made available under the terms of the Eclipse Public License v1.0
- which accompanies this distribution, and is available at
- http://www.eclipse.org/legal/epl-v10.html
-
- Contributors:
-    Jan Hatje - Original pom to build plug-ins
-    Dylan Maxwell, Eric Berryman - org.csstudio.product pom.xml
-    Kay Kasemir - This file for cs-studio-SNS
+  Copyright (c) 2013 DESY.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Distribution License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/org/documents/edl-v10.php
+ 
+  Contributors:
+     Jan Hatje - created the pom to build the plug-ins
 -->
 <project
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
@@ -20,27 +18,26 @@
   <version>BUILD-VERSION</version>
   <packaging>pom</packaging>
 
-  <!-- USE MAVEN 3.0 --> 
+  <!--
+    USE MAVEN 3.0
+  --> 
   <prerequisites>
     <maven>3.0</maven>
   </prerequisites>
 
-  <!-- PROPERTIES -->
+  <!-- 
+    PROPERTIES
+  -->
   <properties>
-    <tycho.version>0.22.0</tycho.version>
-    <tycho-extras.version>0.22.0</tycho-extras.version>
-    <eclipse-site>http://download.eclipse.org/releases/luna</eclipse-site>
-    <!-- PyDev web site suggests http://pydev.org/updates/, which redirects to this: -->
-    <pydev-site>http://update-production-pydev.s3.amazonaws.com/pydev/updates</pydev-site>
+    <!-- VERSIONS -->
+		<tycho.version>0.22.0</tycho.version>
+		<tycho-extras.version>0.22.0</tycho-extras.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
 
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- How to handle errors -->
-    <!-- jgit.dirtyWorkingTree options: ignore, warning, error -->
-    <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
-  </properties>
-
-  <!-- PLUGIN REPOSITORIES -->
+  <!--
+    PLUGIN REPOSITORIES
+  -->
   <pluginRepositories>
     <pluginRepository>
       <id>tycho</id>
@@ -51,66 +48,20 @@
   </pluginRepositories>
 
   <!--
-    P2 REPOSITORIES
+    CHILD MODULES
   -->
-  <repositories>
-    <repository>
-      <id>Eclipse</id>
-      <url>${eclipse-site}</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>pydev</id>
-      <url>${pydev-site}</url>
-      <layout>p2</layout>
-    </repository>  
-  </repositories>
-  
-  <profiles>
-    <!-- If a local repository is specified, use that. -->
-    <profile>
-      <id>csstudio-local-repo-enable</id>
-      <activation>
-        <file>
-          <exists>${csstudio.local.repo}/artifacts.jar</exists>
-        </file>
-      </activation>
-      <repositories>
-        <repository>
-          <id>csstudio-local-repo</id>
-          <url>file:${csstudio.local.repo}</url>
-          <layout>p2</layout>
-        </repository>
-      </repositories>
-    </profile>
-    <profile>
-      <id>csstudio-composite-repo-enable</id>
-      <activation>
-        <property>
-          <name>csstudio.composite.repo</name>
-        </property>
-      </activation>
-      <repositories>
-        <repository>
-          <id>csstudio-composite-repo</id>
-          <url>file:${csstudio.composite.repo}</url>
-          <layout>p2</layout>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
-
-  <!-- CHILD MODULES -->
   <modules>
     <module>plugins</module>
-    <module>features</module>
     <module>products</module>
+    <module>features</module>
     <module>repository</module>
   </modules>
 
 
   <build>
-    <!-- PLUGIN MANAGEMENT -->
+    <!--
+      PLUGIN MANAGEMENT
+    -->
     <pluginManagement>
       <plugins>
         <plugin>
@@ -135,7 +86,7 @@
               .gitignore
               *.target
             </jgit.ignore>
-            <jgit.dirtyWorkingTree>${jgit.dirtyWorkingTree}</jgit.dirtyWorkingTree>
+            <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
           </configuration>
         </plugin>
       </plugins> 
@@ -145,12 +96,12 @@
       PLUGIN CONFIGURATION
     -->
     <plugins>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-maven-plugin</artifactId>
-          <version>${tycho.version}</version>
-          <extensions>true</extensions>
-        </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <extensions>true</extensions>
+      </plugin>
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
           <artifactId>target-platform-configuration</artifactId>
@@ -158,6 +109,40 @@
           <configuration>
             <dependency-resolution>
               <extraRequirements>
+                <requirement>
+                  <!-- 
+                      Needed to satisfy the import packages javax.servlet and
+                      javax.servlet.http required by the plugin org.csstudio.rap.core
+                  -->
+                  <type>eclipse-plugin</type>
+                  <id>javax.servlet</id>
+                  <versionRange>0.0.0</versionRange>
+                </requirement>
+                <requirement>
+                  <!--
+                    Needed to satisfy the import package org.eclipse.ui.parts 
+                    required by the plugin org.csstudio.logbook.olog
+                  -->
+                  <type>eclipse-plugin</type>
+                  <id>org.eclipse.ui.ide</id>
+                  <versionRange>0.0.0</versionRange>
+                </requirement>
+                <requirement>
+                  <!--
+                    Needed to generate CS-Studio P2 Repository.
+                  -->
+                  <type>eclipse-feature</type>
+                  <id>org.eclipse.objectteams.otdt.core.patch</id>
+                  <versionRange>0.0.0</versionRange>
+                </requirement>
+                <requirement>
+                  <!--
+                    Needed as a dependency for org.eclipse.objectteams.otdt.core.patch
+                  -->
+                  <type>eclipse-feature</type>
+                  <id>org.eclipse.jdt</id>
+                  <versionRange>0.0.0</versionRange>
+                </requirement>
               </extraRequirements>
               <!-- Default behavior is to resolve ALL dependencies. -->
               <!--<optionalDependencies>ignore</optionalDependencies>-->
@@ -206,31 +191,19 @@
         <artifactId>tycho-compiler-plugin</artifactId>
         <version>${tycho.version}</version>
         <configuration>
-          <!-- Without this argument I get an error in the plugin 'org.csstudio.rap.core' -->
+          <!--
+            Without this argument I get an error in the plugin 'org.csstudio.rap.core'
+          -->
           <compilerArgument>-err:-forbidden</compilerArgument>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-packaging-plugin</artifactId>
-        <version>${tycho.version}</version>
         <configuration>
           <!--Some project include things that no longer exists. This should be fixed, but for now this parameter lets the build continue.-->
           <strictBinIncludes>false</strictBinIncludes>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-source-plugin</artifactId>
-        <version>${tycho.version}</version>
-        <executions>
-          <execution>
-            <id>plugin-source</id>
-            <goals>
-              <goal>plugin-source</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
@@ -242,5 +215,167 @@
       </plugin>
     </plugins>
   </build>
+<!--
+    Profiles
+  -->
+	<profiles>
+	    <profile>
+			<id>platform-default</id>
+			<activation>
+				<property>
+					<name>!platform-version-name</name>
+				</property>
+			</activation>
+			<properties>
+				<eclipse-site>http://download.eclipse.org/releases/luna</eclipse-site>
+				<eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.4</eclipse-update-site>
+				<rap-site>http://download.eclipse.org/rt/rap/2.3</rap-site>
+				<rap-incubator-site>http://download.eclipse.org/rt/rap/incubator/nightly/gef</rap-incubator-site>
+				<platform-version>[4.3,4.4)</platform-version>
+				<swtbot-site>http://download.eclipse.org/technology/swtbot/luna/dev-build/update-site</swtbot-site>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-luna</id>
+			<activation>
+				<property>
+					<name>platform-version-name</name>
+					<value>luna</value>
+				</property>
+			</activation>
+			<properties>
+				<eclipse-site>http://download.eclipse.org/releases/luna</eclipse-site>
+				<eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.4</eclipse-update-site>
+				<rap-site>http://download.eclipse.org/rt/rap/2.3</rap-site>
+				<rap-incubator-site>http://download.eclipse.org/rt/rap/incubator/nightly/gef</rap-incubator-site>
+				<platform-version>[4.3,4.4)</platform-version>
+				<swtbot-site>http://download.eclipse.org/technology/swtbot/luna/dev-build/update-site</swtbot-site>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-kepler</id>
+			<activation>
+				<property>
+					<name>platform-version-name</name>
+					<value>kepler</value>
+				</property>
+			</activation>
+			<properties>
+				<eclipse-site>http://download.eclipse.org/releases/kepler</eclipse-site>
+				<eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.3</eclipse-update-site>
+				<rap-site>http://download.eclipse.org/rt/rap/2.2</rap-site>
+				<rap-incubator-site>http://download.eclipse.org/rt/rap/incubator/2.2/gef</rap-incubator-site>
+				<platform-version>[4.2,4.3)</platform-version>
+				<swtbot-site>http://download.eclipse.org/technology/swtbot/kepler/dev-build/update-site</swtbot-site>
+			</properties>
+		</profile>
+		<profile>
+			<id>csstudio-local-repo-enable</id>
+			<activation>
+				<property>
+					<name>csstudio.local.repo</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>csstudio-local-repo</id>
+					<url>file:${csstudio.local.repo}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>csstudio-composite-repo-enable</id>
+			<activation>
+				<property>
+					<name>csstudio.composite.repo</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>csstudio-composite-repo</id>
+					<url>file:${csstudio.composite.repo}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>local-dev</id>
+			<properties>
+				<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+				<baselineMode>warn</baselineMode>
+			</properties>
+			<repositories>
+			</repositories>
+			<pluginRepositories>
+			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>cs-studio</id>
+			<activation>
+				<property>
+					<name>!cs-studio</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>csstudio-thirdparty</id>
+					<url>http://download.controlsystemstudio.org/thirdparty/4.1</url>
+					<layout>p2</layout>
+				</repository>
+				<repository>
+					<id>csstudio-maven-osgi-bundles</id>
+					<url>http://download.controlsystemstudio.org/maven-osgi-bundles/4.1</url>
+					<layout>p2</layout>
+				</repository>
+				<repository>
+					<id>csstudio-core-applications-bundles</id>
+					<url>http://delphinus.atnf.csiro.au:8080/job/CSS-4.x-core-app/lastSuccessfulBuild/artifact/repository/</url>
+					<layout>p2</layout>
+				</repository>
 
+			</repositories>
+		</profile>
+	</profiles>
+	<!--
+    P2 REPOSITORIES
+ 	-->
+ 	<repositories>
+		<repository>
+			<id>eclipse</id>
+			<url>${eclipse-site}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>eclipse-updates</id>
+			<url>${eclipse-update-site}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>rap</id>
+			<url>${rap-site}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>rap-incubator</id>
+			<url>${rap-incubator-site}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>orbit</id>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository</url>
+			<layout>p2</layout>
+		</repository>
+	    <repository>
+	      <id>pydev</id>
+	      <url>http://update-production-pydev.s3.amazonaws.com/pydev/updates</url>
+	      <layout>p2</layout>
+	    </repository>
+
+	    <repository>
+	      <id>efx</id>
+	      <url>http://download.eclipse.org/efxclipse/runtime-released/1.2.0/site</url>
+	      <layout>p2</layout>
+	    </repository>
+	</repositories>
 </project>

@@ -67,7 +67,6 @@ openFile
    <vm>
    </vm>
 
-
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.servlet"/>
@@ -75,7 +74,7 @@ openFile
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.commons.el"/>
       <plugin id="org.apache.commons.logging"/>
-      <plugin id="org.apache.jasper"/>
+      <plugin id="org.apache.jasper" fragment="true"/>
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.lucene.analysis"/>
       <plugin id="org.apache.lucene.core"/>
@@ -180,8 +179,11 @@ openFile
 
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>
 
 </product>
