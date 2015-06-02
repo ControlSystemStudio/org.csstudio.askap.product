@@ -42,6 +42,10 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
          id="org.csstudio.applications.logbook.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.csstudio.alarm.beast.ui.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.ui"/>
