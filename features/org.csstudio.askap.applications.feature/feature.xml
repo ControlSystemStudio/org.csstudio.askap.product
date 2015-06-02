@@ -38,6 +38,10 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
          id="org.python.pydev.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.csstudio.applications.logbook.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.ui"/>
@@ -128,13 +132,6 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="org.csstudio.diag.pvmanager.probe"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.csstudio.askap.chat"
          download-size="0"
          install-size="0"
          version="0.0.0"
