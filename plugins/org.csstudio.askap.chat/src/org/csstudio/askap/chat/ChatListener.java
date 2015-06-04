@@ -1,6 +1,5 @@
 package org.csstudio.askap.chat;
 
-import java.util.Date;
 
 public interface ChatListener {
 	
