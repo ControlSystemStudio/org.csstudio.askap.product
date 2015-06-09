@@ -1,7 +1,9 @@
 package org.csstudio.askap.navigator;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,15 +55,22 @@ public class NavigatorView extends ViewPart {
 	
 	public void createTreeView(Composite parent) {
 		ASKAP askap = null;
-//		String fileName = "/Users/wu049/ASKAPsoft/Code/Components/CSS/current/files/css-config/navigator.json";
 		String fileName = Preferences.getNavigatorConfigFile();
 		try {
-			FileReader fileReader = new FileReader(fileName);
+			URI uri = new URI(fileName);
+			String scheme = uri.getScheme();
+			if (scheme==null || scheme.isEmpty())
+				uri = new URI("file", fileName, null);
+			
+			URL url = uri.toURL();
+			InputStream stream = url.openStream();
+			InputStreamReader reader = new InputStreamReader(stream);
+			
 			Gson gson = new Gson();
-			askap = gson.fromJson(fileReader, ASKAP.class);
+			askap = gson.fromJson(reader, ASKAP.class);
 			askap.setupMacros();
 			
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			logger.log(Level.WARNING, "Could not load ASKAP treeview file - " + fileName, e);
             ExceptionDetailsErrorDialog.openError(parent.getShell(),
                     "ERROR",

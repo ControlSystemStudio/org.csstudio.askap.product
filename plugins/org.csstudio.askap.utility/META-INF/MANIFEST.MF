@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.csstudio.askap.utility.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.core.resources;bundle-version="3.7.101"
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.csstudio.opibuilder;bundle-version="4.0.103"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: askap.datapublisher,
@@ -20,4 +21,6 @@ Export-Package: askap.datapublisher,
    org.eclipse.ui.plugin,
    org.osgi.framework"
 Bundle-ClassPath: lib/java-askap.jar,
+ lib/jsoup-1.8.2.jar,
  .
+Import-Package: org.csstudio.opibuilder.persistence

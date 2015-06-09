@@ -5,7 +5,6 @@ import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
@@ -31,12 +30,12 @@ public class PreferencePage extends FieldEditorPreferencePage
 	protected void createFieldEditors() {
 		setMessage("ASKAP Settings");
 		final Composite parent = getFieldEditorParent();
-		FileFieldEditor fileEditor = new FileFieldEditor(
+		URIFileFieldEditor fileEditor = new URIFileFieldEditor(
 				Preferences.NAVIGATOR_CONFIGURATION_FILE, "ASKAP Navigator File:",
 				parent);
 		addField(fileEditor);
 
-		DirectoryFieldEditor askapDirectory = new DirectoryFieldEditor(
+		URIDirectoryFieldEditor askapDirectory = new URIDirectoryFieldEditor(
 				Preferences.ASKAP_OPI_RELEASE_LOCATION, "ASKAP opi Directory:",
 				parent);		
 		addField(askapDirectory);
