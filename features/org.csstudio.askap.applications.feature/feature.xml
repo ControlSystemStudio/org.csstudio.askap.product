@@ -35,10 +35,6 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
          version="0.0.0"/>
 
    <includes
-         id="org.python.pydev.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.csstudio.alarm.beast.ui.feature"
          version="0.0.0"/>
 
