@@ -175,7 +175,7 @@ openFile
       <feature id="org.csstudio.askap.core.feature"/>
       <feature id="org.csstudio.askap.applications.feature"/>
       <feature id="org.csstudio.askap.eclipse.feature"/>
-      <feature id="org.csstudio.askap.pydev.feature" version="4.0.0.qualifier"/>
+      <feature id="org.csstudio.askap.pydev.feature"/>
    </features>
 
    <configurations>
