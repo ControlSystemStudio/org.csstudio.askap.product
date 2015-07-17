@@ -7,7 +7,8 @@ Bundle-Activator: org.csstudio.askap.utility.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.7.101",
- org.csstudio.opibuilder;bundle-version="4.0.103"
+ org.csstudio.opibuilder;bundle-version="4.0.103",
+ org.csstudio.ui.util;bundle-version="4.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: askap.datapublisher,

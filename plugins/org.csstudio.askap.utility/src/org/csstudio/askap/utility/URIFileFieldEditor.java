@@ -5,7 +5,6 @@ package org.csstudio.askap.utility;
  * 
  */
 
-import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;

@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.csstudio.ui.util.dialogs.ExceptionDetailsErrorDialog;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -14,9 +15,14 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.PlatformUI;
 
 public class InstallAskapAction extends Action implements
 		IWorkbenchWindowActionDelegate {
@@ -60,6 +66,12 @@ public class InstallAskapAction extends Action implements
 					
 				} catch (Exception e) {
 					logger.log(Level.WARNING, "Could not create project from " + Preferences.getOPIDirectory() + ": " + e.getMessage());
+			        Shell shell = PlatformUI.getWorkbench().getModalDialogShellProvider().getShell();		        
+		            ExceptionDetailsErrorDialog.openError(shell,
+		                    "ERROR",
+		                    "Installation failed.",
+		                    e);
+
 				}
 
 				return Status.OK_STATUS;

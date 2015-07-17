@@ -14,6 +14,13 @@
                menubarPath="css/"
                style="push">
          </action>
+         <action
+               class="org.csstudio.askap.utility.ConfigureAskapAction"
+               id="org.csstudio.askap.utility.ConfigureAskapAction"
+               label="Configure ASKAP"
+               menubarPath="css/"
+               style="push">
+         </action>
       </actionSet>
    </extension>
    <extension
