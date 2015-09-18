@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.csstudio.opibuilder.widget">
+      <widget
+            category="Monitors"
+            description="A widget that draws bars from PVs."
+            editpart_class="org.csstudio.askap.widgets.editparts.BarGraphEditPart"
+            icon="icons/XYGraph.gif"
+            model_class="org.csstudio.askap.widgets.model.BarGraphModel"
+            name="Bar Graph"
+            typeId="org.csstudio.askap.widgets.barGraph">
+      </widget>
+   </extension>
+
+</plugin>
