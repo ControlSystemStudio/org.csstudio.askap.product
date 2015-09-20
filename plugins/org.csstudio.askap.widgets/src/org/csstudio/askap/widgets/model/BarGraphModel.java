@@ -94,7 +94,14 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 	@Override
 	public String getTooltip() {
 		int i = barGraph.getMouseOverBarIndex();
-		return "" + i;
+		if (i>=0) {			
+			String pvName = (String) getProperty(makeBarPropID(BarProperty.YPV.propIDPre, i)).getPropertyValue();
+			String pvValue = getProperty(makeBarPropID(BarProperty.YPV_VALUE.propIDPre, i)).getPropertyValue().toString();			
+			return pvName + "\n" + pvValue;
+		} else {
+			return "";
+		}
+		
 	}
 
     public static String makeBarPropID(String propIDPre, int index){
