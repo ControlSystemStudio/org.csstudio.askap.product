@@ -1,6 +1,7 @@
 package org.csstudio.askap.widgets.swt;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
@@ -103,6 +104,12 @@ public class BarGraph extends Composite {
 	public void setYAxisRange(double min, double max) {
 		chart.getAxisSet().getYAxis(0).setRange(new Range(min, max));
 	}
+
+	public void setBarColor(Color color) {
+		IBarSeries barSeries = (IBarSeries) chart.getSeriesSet().getSeries(SERIES_ID);
+		barSeries.setBarColor(color);
+	}
+
 	
 	public void setTitle(String title) {
 		if (title!=null && title.length()>0) {

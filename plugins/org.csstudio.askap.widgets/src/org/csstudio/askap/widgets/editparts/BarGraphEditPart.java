@@ -10,8 +10,11 @@ import org.csstudio.askap.widgets.model.BarGraphModel.BarProperty;
 import org.csstudio.askap.widgets.swt.BarGraph;
 import org.csstudio.opibuilder.editparts.AbstractPVWidgetEditPart;
 import org.csstudio.opibuilder.properties.IWidgetPropertyChangeHandler;
+import org.csstudio.opibuilder.util.OPIColor;
 import org.csstudio.simplepv.VTypeHelper;
+import org.csstudio.ui.util.CustomMediaFactory;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.swt.graphics.Color;
 import org.epics.vtype.VType;
 
 
@@ -65,6 +68,11 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
 		barGraph.setTitle(null);
 		barGraph.setYAxisRange(0, getWidgetModel().getMaxYValue());
 		
+		
+		OPIColor color = getWidgetModel().getBarColor();
+		Color barColor = CustomMediaFactory.getInstance().getColor(((OPIColor)color).getRGBValue());
+		barGraph.setBarColor(barColor);								
+		
 		getWidgetModel().setBarGraph(barGraph);
 		
         for(int i=BarGraphModel.MAX_NUMBER_OF_BARS -1; i>= getWidgetModel().getBarCount(); i--){
@@ -78,11 +86,10 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
 	@Override
 	protected void registerPropertyChangeHandlers() {
 		registerBarPropertyChangeHandlers();
-		registerBarNumberChangeHandler();
-		registerYAxisMaxValueChangeHandler();
+		registerBarGraphChangeHandler();
 	}
 	
-	private void registerBarNumberChangeHandler() {
+	private void registerBarGraphChangeHandler() {
 
 		final IWidgetPropertyChangeHandler handler = new IWidgetPropertyChangeHandler(){
 
@@ -112,11 +119,8 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
 		            handler.handleChange(evt.getOldValue(), evt.getNewValue(), getFigure());
 		        }
         });
-	}
 
-	private void registerYAxisMaxValueChangeHandler() {
-
-		final IWidgetPropertyChangeHandler handler = new IWidgetPropertyChangeHandler(){
+        final IWidgetPropertyChangeHandler maxValueHandler = new IWidgetPropertyChangeHandler(){
 
 			@Override
 			public boolean handleChange(Object oldValue, Object newValue,
@@ -131,7 +135,26 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
         getWidgetModel().getProperty(BarGraphModel.PROP_MAX_Y_AXIS_VALUE).addPropertyChangeListener(
     		new PropertyChangeListener(){
 		        public void propertyChange(PropertyChangeEvent evt) {
-		            handler.handleChange(evt.getOldValue(), evt.getNewValue(), getFigure());
+		        	maxValueHandler.handleChange(evt.getOldValue(), evt.getNewValue(), getFigure());
+		        }
+        });
+        
+        final IWidgetPropertyChangeHandler barColorHandler = new IWidgetPropertyChangeHandler(){
+
+			@Override
+			public boolean handleChange(Object oldValue, Object newValue,
+					IFigure figure) {
+				
+				Color newColor = CustomMediaFactory.getInstance().getColor(((OPIColor)newValue).getRGBValue());
+				barGraph.setBarColor(newColor);								
+		        return true;
+			}
+		};
+	       
+        getWidgetModel().getProperty(BarGraphModel.PROP_BAR_COLOR).addPropertyChangeListener(
+    		new PropertyChangeListener(){
+		        public void propertyChange(PropertyChangeEvent evt) {
+		        	barColorHandler.handleChange(evt.getOldValue(), evt.getNewValue(), getFigure());
 		        }
         });
 	}

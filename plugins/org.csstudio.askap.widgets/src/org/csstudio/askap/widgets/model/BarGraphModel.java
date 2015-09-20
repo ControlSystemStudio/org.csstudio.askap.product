@@ -2,11 +2,14 @@ package org.csstudio.askap.widgets.model;
 
 import org.csstudio.askap.widgets.swt.BarGraph;
 import org.csstudio.opibuilder.model.AbstractPVWidgetModel;
+import org.csstudio.opibuilder.properties.ColorProperty;
 import org.csstudio.opibuilder.properties.IntegerProperty;
 import org.csstudio.opibuilder.properties.NameDefinedCategory;
 import org.csstudio.opibuilder.properties.PVNameProperty;
 import org.csstudio.opibuilder.properties.PVValueProperty;
 import org.csstudio.opibuilder.properties.WidgetPropertyCategory;
+import org.csstudio.opibuilder.util.OPIColor;
+import org.eclipse.swt.graphics.RGB;
 
 public class BarGraphModel extends AbstractPVWidgetModel {
 	
@@ -18,8 +21,13 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 
     public static final String PROP_MAX_Y_AXIS_VALUE = "max_y_axis_value";    
 
+    public static final String PROP_BAR_COLOR = "bar_color";    
+
     public static final String PROP_BAR_COUNT = "bar_count";    
 	public static final int MAX_NUMBER_OF_BARS = 100;
+	
+    private static final RGB DEFAULT_AXIS_COLOR = new RGB(80, 240, 180);
+
 	
     public enum BarProperty { 	
         YPV("y_pv", "Y PV"),
@@ -54,6 +62,9 @@ public class BarGraphModel extends AbstractPVWidgetModel {
         addProperty(new IntegerProperty(PROP_MAX_Y_AXIS_VALUE, "Max Y Axis Value",
                 WidgetPropertyCategory.Behavior, 100, 0, 1000));
 
+        addProperty(new ColorProperty(PROP_BAR_COLOR, "Bar color", WidgetPropertyCategory.Display, DEFAULT_AXIS_COLOR));
+
+        
 		for (int i=0; i<MAX_NUMBER_OF_BARS; i++) {
 	        String propID = makeBarPropID(BarProperty.YPV.propIDPre, i);
 	        WidgetPropertyCategory category = new NameDefinedCategory("Bar " + i);
@@ -72,6 +83,9 @@ public class BarGraphModel extends AbstractPVWidgetModel {
         return (Integer) getProperty(PROP_MAX_Y_AXIS_VALUE).getPropertyValue();
     }
 
+    public OPIColor getBarColor() {
+    	return (OPIColor) getProperty(PROP_BAR_COLOR).getPropertyValue();
+    }
 	@Override
 	public String getTypeID() {
 		return ID;
