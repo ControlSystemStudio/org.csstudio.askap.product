@@ -24,7 +24,7 @@ public class BarGraphModel extends AbstractPVWidgetModel {
     public static final String PROP_BAR_COLOR = "bar_color";    
 
     public static final String PROP_BAR_COUNT = "bar_count";    
-	public static final int MAX_NUMBER_OF_BARS = 100;
+	public static final int MAX_NUMBER_OF_BARS = 1000;
 	
     private static final RGB DEFAULT_AXIS_COLOR = new RGB(80, 240, 180);
 
@@ -60,7 +60,7 @@ public class BarGraphModel extends AbstractPVWidgetModel {
                 WidgetPropertyCategory.Behavior, 1, 1, MAX_NUMBER_OF_BARS));
 
         addProperty(new IntegerProperty(PROP_MAX_Y_AXIS_VALUE, "Max Y Axis Value",
-                WidgetPropertyCategory.Behavior, 100, 0, 1000));
+                WidgetPropertyCategory.Behavior, 100, 0, 100000));
 
         addProperty(new ColorProperty(PROP_BAR_COLOR, "Bar color", WidgetPropertyCategory.Display, DEFAULT_AXIS_COLOR));
 
@@ -74,7 +74,6 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 		}
 		
 		setPropertyVisible(PROP_PVNAME, false);
-
 	}
     public int getBarCount() {
         return (Integer) getProperty(PROP_BAR_COUNT).getPropertyValue();
@@ -86,7 +85,8 @@ public class BarGraphModel extends AbstractPVWidgetModel {
     public OPIColor getBarColor() {
     	return (OPIColor) getProperty(PROP_BAR_COLOR).getPropertyValue();
     }
-	@Override
+    
+ 	@Override
 	public String getTypeID() {
 		return ID;
 	}

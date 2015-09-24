@@ -45,8 +45,11 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
                 if(newValue == null || !(newValue instanceof VType))
                     break;
                 
-        		double val = VTypeHelper.getDouble((VType) newValue);
-                barGraph.setValue(barIndex, val);
+                VType newVTypeValue = (VType) newValue;
+                String alarmName = VTypeHelper.getAlarmSeverity(newVTypeValue).name();
+        		double val = VTypeHelper.getDouble(newVTypeValue);
+        		
+                barGraph.setValue(barIndex, val, alarmName);
                 break;
 			default:
 				break;
@@ -67,8 +70,7 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
 		barGraph.setShowYAxis(false);
 		barGraph.setTitle(null);
 		barGraph.setYAxisRange(0, getWidgetModel().getMaxYValue());
-		
-		
+				
 		OPIColor color = getWidgetModel().getBarColor();
 		Color barColor = CustomMediaFactory.getInstance().getColor(((OPIColor)color).getRGBValue());
 		barGraph.setBarColor(barColor);								
@@ -170,5 +172,4 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
             setPropertyChangeHandler(propID, handler);
 	    }
 	}
-
 }
