@@ -7,6 +7,7 @@ import org.csstudio.opibuilder.properties.IntegerProperty;
 import org.csstudio.opibuilder.properties.NameDefinedCategory;
 import org.csstudio.opibuilder.properties.PVNameProperty;
 import org.csstudio.opibuilder.properties.PVValueProperty;
+import org.csstudio.opibuilder.properties.StringProperty;
 import org.csstudio.opibuilder.properties.WidgetPropertyCategory;
 import org.csstudio.opibuilder.util.OPIColor;
 import org.eclipse.swt.graphics.RGB;
@@ -21,10 +22,12 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 
     public static final String PROP_MAX_Y_AXIS_VALUE = "max_y_axis_value";    
 
+    public static final String PROP_BASE_PV_NAME = "base_pvname";    
+    
     public static final String PROP_BAR_COLOR = "bar_color";    
 
     public static final String PROP_BAR_COUNT = "bar_count";    
-	public static final int MAX_NUMBER_OF_BARS = 1000;
+    public static final int MAX_NUMBER_OF_BARS = 1000;
 	
     private static final RGB DEFAULT_AXIS_COLOR = new RGB(80, 240, 180);
 
@@ -64,6 +67,7 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 
         addProperty(new ColorProperty(PROP_BAR_COLOR, "Bar color", WidgetPropertyCategory.Display, DEFAULT_AXIS_COLOR));
 
+        addProperty(new StringProperty(PROP_BASE_PV_NAME, "Base PV Name", WidgetPropertyCategory.Basic, ""));
         
 		for (int i=0; i<MAX_NUMBER_OF_BARS; i++) {
 	        String propID = makeBarPropID(BarProperty.YPV.propIDPre, i);
@@ -101,7 +105,6 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 		} else {
 			return "";
 		}
-		
 	}
 
     public static String makeBarPropID(String propIDPre, int index){

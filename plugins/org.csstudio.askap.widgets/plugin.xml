@@ -7,7 +7,7 @@
             category="Monitors"
             description="A widget that draws bars from PVs."
             editpart_class="org.csstudio.askap.widgets.editparts.BarGraphEditPart"
-            icon="icons/XYGraph.gif"
+            icon="icons/BarGraph.gif"
             model_class="org.csstudio.askap.widgets.model.BarGraphModel"
             name="Bar Graph"
             typeId="org.csstudio.askap.widgets.barGraph">
