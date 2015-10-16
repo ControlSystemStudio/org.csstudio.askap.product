@@ -1,7 +1,6 @@
 package org.csstudio.askap.widgets.swt;
 
 import org.csstudio.opibuilder.util.AlarmRepresentationScheme;
-import org.csstudio.opibuilder.util.OPIColor;
 import org.csstudio.ui.util.CustomMediaFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -56,7 +55,6 @@ public class BarGraph extends Composite {
         for (ALARM_SERIES s : ALARM_SERIES.values()) {       
         	IBarSeries barSeries = (IBarSeries)chart.getSeriesSet().createSeries(SeriesType.BAR, s.alarmName);
     		barSeries.setYSeries(s.values);
-    		
     		RGB colorRBG = null;
 			switch (s) {
     			case MAJOR_ALARM:
@@ -175,6 +173,13 @@ public class BarGraph extends Composite {
 	        chart.getTitle().setVisible(true);
 		} else {
 	        chart.getTitle().setVisible(false);			
+		}
+	}
+
+	public void setPadding(int newBarPadding) {
+		for (ALARM_SERIES s : ALARM_SERIES.values()) {
+			IBarSeries barSeries = (IBarSeries) chart.getSeriesSet().getSeries(s.alarmName);
+			barSeries.setBarPadding(50);
 		}
 	}
 }

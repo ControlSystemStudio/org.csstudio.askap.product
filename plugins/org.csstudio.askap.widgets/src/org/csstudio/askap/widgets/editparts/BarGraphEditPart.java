@@ -66,6 +66,7 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
 		BarGraphFigure barGraphFigure = new BarGraphFigure(this);
 		barGraph = barGraphFigure.getSWTWidget();
 		barGraph.setNumberOfBars(getWidgetModel().getBarCount());
+		barGraph.setPadding(getWidgetModel().getBarPadding());
 		barGraph.setShowXAxis(false);
 		barGraph.setShowYAxis(false);
 		barGraph.setTitle(null);
@@ -121,7 +122,16 @@ public class BarGraphEditPart extends AbstractPVWidgetEditPart {
 		            handler.handleChange(evt.getOldValue(), evt.getNewValue(), getFigure());
 		        }
         });
+        
+        getWidgetModel().getProperty(BarGraphModel.PROP_BAR_PADDING).addPropertyChangeListener(
+    		new PropertyChangeListener(){
+		        public void propertyChange(PropertyChangeEvent evt) {
+					int newBarPadding = (Integer) evt.getNewValue();
+					barGraph.setPadding(newBarPadding);
+		        }
+        });
 
+        
         final IWidgetPropertyChangeHandler maxValueHandler = new IWidgetPropertyChangeHandler(){
 
 			@Override

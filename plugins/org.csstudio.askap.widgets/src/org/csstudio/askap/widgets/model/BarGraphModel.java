@@ -28,7 +28,9 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 
     public static final String PROP_BAR_COUNT = "bar_count";    
     public static final int MAX_NUMBER_OF_BARS = 1000;
-	
+
+    public static final String PROP_BAR_PADDING = "bar_padding";    
+
     private static final RGB DEFAULT_AXIS_COLOR = new RGB(80, 240, 180);
 
 	
@@ -64,6 +66,9 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 
         addProperty(new IntegerProperty(PROP_MAX_Y_AXIS_VALUE, "Max Y Axis Value",
                 WidgetPropertyCategory.Behavior, 100, 0, 100000));
+        
+        addProperty(new IntegerProperty(PROP_BAR_PADDING, "Bar Padding (%)",
+                WidgetPropertyCategory.Behavior, 20, 20, 80));
 
         addProperty(new ColorProperty(PROP_BAR_COLOR, "Bar color", WidgetPropertyCategory.Display, DEFAULT_AXIS_COLOR));
 
@@ -79,11 +84,15 @@ public class BarGraphModel extends AbstractPVWidgetModel {
 		
 		setPropertyVisible(PROP_PVNAME, false);
 	}
+	
     public int getBarCount() {
         return (Integer) getProperty(PROP_BAR_COUNT).getPropertyValue();
     }
     public int getMaxYValue() {
         return (Integer) getProperty(PROP_MAX_Y_AXIS_VALUE).getPropertyValue();
+    }
+    public int getBarPadding() {
+        return (Integer) getProperty(PROP_BAR_PADDING).getPropertyValue();
     }
 
     public OPIColor getBarColor() {
